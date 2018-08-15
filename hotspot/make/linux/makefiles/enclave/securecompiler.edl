@@ -1,0 +1,22 @@
+
+
+/* ci.edl - Top EDL file. */
+
+/* Here we define the compiler enclave of ci, there are two apis: */
+/* compiler2_init */
+/* compile_method() */
+
+enclave {
+
+    trusted {
+        /* define ECALLs here. */
+        include "compiler/abstractCompiler.hpp"
+        public void c2_initialize();
+        public void c2_compile_method([user_check]ciEnv* env,[user_check] ciMethod* target, int entry_bci);
+    };
+    untrusted {
+
+
+    };
+
+};
